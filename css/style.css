@@ -1,0 +1,225 @@
+/* ===== 全局基础 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #000000;
+  --accent: #2563eb;
+  --accent-dim: rgba(37, 99, 235, 0.15);
+  --text: #e5e7eb;
+  --text-dim: #6b7280;
+  --border: #1f2937;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Courier New', 'Consolas', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== 背景：月面 + 蓝色光带 ===== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, #1a1a2e 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, #0f0f23 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 20% 80%, #0d0d1a 0%, transparent 50%),
+    #000;
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    linear-gradient(180deg, transparent 0%, transparent 60%, rgba(37, 99, 235, 0.03) 100%),
+    linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0.06) 50%, transparent 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===== 导航 ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+nav .logo {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav .nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a.active {
+  color: var(--accent);
+}
+
+/* ===== 主区域 ===== */
+main {
+  padding-top: 5rem;
+  min-height: 100vh;
+}
+
+section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+p {
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+/* ===== 首页大字 ===== */
+.hero {
+  height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero .subtitle {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+}
+
+.hero .cta {
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  padding: 0.6rem 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+}
+
+.hero .cta:hover {
+  background: var(--accent-dim);
+}
+
+/* ===== 作品网格 ===== */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.work-card {
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: all 0.3s;
+  background: rgba(0,0,0,0.3);
+}
+
+.work-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.work-card h3 {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.work-card p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 0;
+}
+
+/* ===== 链接列表 ===== */
+.links-list {
+  list-style: none;
+}
+
+.links-list li {
+  border-bottom: 1px solid var(--border);
+  padding: 0.8rem 0;
+}
+
+.links-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.links-list a:hover {
+  color: var(--accent);
+}
+
+/* ===== 联系表单 ===== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.8rem;
+  color: var(--text);
+  font-fa
